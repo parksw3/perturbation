@@ -44,7 +44,7 @@ for (i in 1:47) {
   
   plot(out$deout$I/out$rho, type="l", col=2)
   lines(cases)
-  plot(out$llvec2, log="y")
+  # plot(out$llvec2, log="y")
   
   out$prefecture <- prefect
   
