@@ -155,13 +155,28 @@ fit_gradient <- function(cases,
     S0_iter[i] <- oo$par
   }
   
-  fitdata <- data.frame(
-    grad=(predict(gfit, newdata = data.frame(time=1:(nrow(dd))+0.1))-predict(gfit))/0.1+1+birth/N,
-    logS=log(S0_iter[which.min(llvec_iter)-1] + Z),
-    week=dd$week,
-    time=1:nrow(dd),
-    change=as.factor((time-1)/52+2013<cutoff)
-  )
+  if (which.min(llvec_iter) > 1) {
+    fitdata <- data.frame(
+      grad=(predict(gfit, newdata = data.frame(time=1:(nrow(dd))+0.1))-predict(gfit))/0.1+1+birth/N,
+      logS=log(S0_iter[which.min(llvec_iter)-1] + Z),
+      week=dd$week,
+      time=1:nrow(dd),
+      change=as.factor((time-1)/52+2013<cutoff)
+    )  
+    
+    S0ini <- S0_iter[which.min(llvec_iter)-1]
+    
+  } else {
+    fitdata <- data.frame(
+      grad=(predict(gfit, newdata = data.frame(time=1:(nrow(dd))+0.1))-predict(gfit))/0.1+1+birth/N,
+      logS=log(S0vec[j]*N + Z),
+      week=dd$week,
+      time=1:nrow(dd),
+      change=as.factor((time-1)/52+2013<cutoff)
+    )
+    
+    S0ini <- (S0vec[j]*N + Z)[1]
+  }
   
   tempdata <- fitdata[fitdata$week==52,]
   tempdata$week <- 0
@@ -178,9 +193,13 @@ fit_gradient <- function(cases,
   betafun <- approxfun(dd$time, beta)
   mufun <- approxfun(dd$time, dd$birth/N)
   
-  S0ini <- S0_iter[which.min(llvec_iter)]
+  oo <- optim(S0ini, function(x) {
+    deout <- runsir(gamma=1, N=N, S0=x, I0=cases[1]*rho, betafun=betafun, mufun=mufun)
+    
+    sum((log(deout$I/rho)-log(cases))^2, na.rm=TRUE)
+  }, method="Brent", lower=0.5*S0ini, upper=2*S0ini)
   
-  deout <- runsir(gamma=1, N=N, S0=S0ini, I0=cases[1]*rho, betafun=betafun, mufun=mufun)
+  deout <- runsir(gamma=1, N=N, S0=oo$par, I0=cases[1]*rho, betafun=betafun, mufun=mufun)
   
   list(
     Z=Z,
