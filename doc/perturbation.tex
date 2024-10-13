@@ -105,8 +105,8 @@
 
 \section*{Introduction}
 
-Understanding the drivers of a dynamical transitions is a fundamental challenge in ecology \citep{earn2000simple,hastings2004transients,hastings2018transient}.
-However, limited availability and sparsity of time series data on ecological systems often limit our ability to tease apart the relative roles of endogenous (e.g., density dependent responses) and exogenous (e.g., climate variables) factors in driving dynamical transitions \citep{hunter1998cycles,lundberg2000population,hernandez2012fluctuations}.
+Understanding the drivers of dynamical transitions is a fundamental challenge in ecology \citep{earn2000simple,hastings2004transients,hastings2018transient}.
+However, limited availability and sparsity of time series data on ecological systems often limit our ability to tease apart the relative roles of endogenous (e.g., density-dependent responses) and exogenous (e.g., climate variables) factors in driving dynamical transitions \citep{hunter1998cycles,lundberg2000population,hernandez2012fluctuations}.
 On the other hand, detailed surveillance data at both spatial and temporal scales are available for many epidemiological systems, which can provide valuable insights for answering broader questions about ecology and population biology \citep{levin1997mathematical,anderson1991infectious,grenfell2001travelling,he2010plug}.
 
 Respiratory syncytial virus (RSV) is a common childhood respiratory pathogen that infects nearly all children by the age of two and also an important risk factor for asthma and allergy development \citep{sigurs1995asthma,sigurs2010asthma,edwards2012microbiology}.
@@ -114,11 +114,11 @@ RSV outbreaks typically exhibit annual or biennial patterns with relatively cons
 Previous studies showed that climate-driven transmission plays a major role in driving RSV epidemic dynamics \citep{pitzer2015environmental,baker2019epidemic}.
 
 In contrast to stable seasonality observed in other countries, a sudden transition from winter to fall RSV outbreaks was observed in Japan in 2016 \citep{miyama2021seasonal,wagatsuma2021shifts}.
-\cite{wagatsuma2021shifts} hypothesized that changes in climate and an increase in inbound oversease travelers may be both responsible for this shift in seasaonlity.
+\cite{wagatsuma2021shifts} hypothesized that changes in climate and an increase in inbound overseas travelers may be both responsible for this shift in seasonality.
 However, their conclusion relied on correlational analyses, providing weak, ecological support for their proposed mechanism.
-Understanding the sudden shift in RSV seasaonality is crucial to predicting future RSV outbreaks as well as for timely deployment of monoclonal antibodies and vaccination.
+Understanding the sudden shift in RSV seasonality is crucial to predicting future RSV outbreaks as well as for timely deployment of monoclonal antibodies and vaccination.
 
-In this study, we analyzed the time series of RSV cases from Japan (\fref{fig1}) to infer the drivers of sudden shift in seasonality between 2016 and 2017.
+In this study, we analyzed the time series of RSV cases from Japan (\fref{fig1}) to infer the drivers of a sudden shift in seasonality between 2016 and 2017.
 In doing so, we developed a flexible modeling approach to account for seasonal transmission and time-varying effects of non-pharmaceutical interventions that were introduced in response to the COVID-19 pandemic.
 Our analysis offers novel insights into drivers of dynamical transition in seasonal respiratory epidemics.
 
@@ -140,7 +140,7 @@ Relative cases are calculated by dividing the raw cases by the pre-pandemic maxi
 \end{figure}
 
 A sudden change in RSV seasonality from winter to fall outbreaks was observed in nearly all prefectures between 2016 and 2017 (\fref{fig1}A).
-To quantify changes in seasonality, we calculated the center of gravity (i.e., the mean timing of an epidemic) for each outbreak season at every prefecture and found a conssitent decrease in the center of gravity (\fref{fig1}B; Methods). 
+To quantify changes in seasonality, we calculated the center of gravity (i.e., the mean timing of an epidemic) for each outbreak season at every prefecture and found a consistent decrease in the center of gravity (\fref{fig1}B; Methods). 
 We also found that these changes were associated with an increase in epidemic troughs (\fref{fig1}C).
 
 We found considerable heterogeneity in the observed outbreak dynamics across major islands, especially following the changes in seasonality (\fref{fig1}D).
@@ -174,25 +174,25 @@ Shaded regions represent the 95\% credible intervals from the posterior distribu
 The SIRS model was able to reproduce the observed dynamics across all five islands, including changes in seasonality that occurred during 2016--2017 as well as post-pandemic changes in outbreak patterns (\fref{fig2}A).
 Interestingly, we estimated semiannual peaks in transmission rates across all islands, except for the Hokkaido island (\fref{fig2}B).
 These semiannual patterns in transmission were explained by the nonlinear effects of specific humidity;
-we estimated that transmission would peak at low and high specific humidity (\fref{fig2}C).
+we estimated that transmission would peak at a low and high specific humidity (\fref{fig2}C).
 
 Across all five islands, we estimated a considerable reduction in transmission during 2020  (\fref{fig2}D);
-however, there were large heterogeneity in the overall shape of the estimated NPI effects as well as the degree of transmission reduction.
-The reduction in transmission rates caused an increased in susceptibile pool (\fref{fig2E}), which allowed a large outbreak when NPIs were lifted (\fref{fig2}A).
+however, there was large heterogeneity in the overall shape of the estimated NPI effects as well as the degree of transmission reduction.
+The reduction in transmission rates caused an increase in the susceptible pool (\fref{fig2E}), which allowed a large outbreak when NPIs were lifted (\fref{fig2}A).
 
 \subsection*{Mechanisms for sudden changes in seasonality}
 
 Since our SIRS model could accurately capture the observed dynamics, we were able to use our fits to further tease apart the mechanisms underlying sudden changes in seasonality of the RSV outbreaks.
-To do so, we first began by evaluated the changes in the proportion of susceptible and infected individuals at the beginning of the season between 2013 and 2019;
+To do so, we first began by evaluating the changes in the proportion of susceptible and infected individuals at the beginning of the season between 2013 and 2019;
 we focused on three main islands that exhibited clear changes in seasonality: Honshu, Shikoku, and Kyushu islands. 
 
 We found a consistent increase in the proportion of susceptible and infected individuals at the beginning of each season between 2013 and 2019 across three main islands (\fref{fig3}A).
 These changes also corresponded with a decrease in center of gravity (\fref{fig3}A).
-A more detailed comparison of epidemic trajectories illustrated that an increase in the susceptible pool at the beginning of season can drive a sudden shift in seasonality (\fref{fig3}B).
+A more detailed comparison of epidemic trajectories illustrated that an increase in the susceptible pool at the beginning of the season can drive a sudden shift in seasonality (\fref{fig3}B).
 
 We also found considerable heterogeneity across islands in differences in peak epidemic timing associated with changes in seasonality (\fref{fig3}B): 9--12 weeks (Honshu), 6--11 weeks (Shikoku), and 18--20 weeks (Kyushu).
 This heterogeneity can be explained by the differences in the seasonal transmission patterns (\fref{fig3}C--G).
-Specifically, RSV transmsission in Honshu island (\fref{fig}3C) exhibits a narrower amplitude (\fref{fig3}D) and a narrower trough (\fref{fig3}E) compared to RSV transmission in Honshu island (\fref{fig3}E).
+Specifically, RSV transmission in Honshu island (\fref{fig}3C) exhibits a narrower amplitude (\fref{fig3}D) and a narrower trough (\fref{fig3}E) compared to RSV transmission in Honshu island (\fref{fig3}E).
 Simulating the SIRS model using seasonal transmission rates that interpolate those estimated from two islands confirmed that a large seasonal amplitude and wider trough cause larger changes in the timing of epidemic peak (\fref{fig3}F). 
 
 \begin{figure}[!th]
@@ -217,7 +217,7 @@ Gray lines represent the estimated transmission rates the Honshu island as a vis
 \subsection*{Mechanisms for an increase in population-level susceptibility}
 
 So what mechanisms caused the population-level susceptibility to increase over time in Japan?
-We hypothesized that the Comprehensive Support System for Children and Childcare, which was enacted in 2012 and launched in 2015, contributed to an increase in the population-level susceptibility:
+We hypothesized that the Comprehensive Support System for Children and Childcare, which was enacted in 2012 and launched in 2015, contributed to an increase in population-level susceptibility:
 specifically, an expansion of childcare facilities would increase contact rates among children, effectively, increasing their susceptibility.
 To quantify the effect of this program, we compared the number of children attending childcare facilities in Japan since 2013 and compared them with our estimates of susceptible proportion (\fref{fig4}).
 Overall, we found consistent patterns of increase in childcare attendance and strong correlations with the estimated susceptible proportion: 
@@ -237,14 +237,14 @@ Red lines and shaded regions represent the best fitting linear regression and th
 
 \section*{Discussion}
 
-We present an epidemiological analysis of RSV outbreaks in the Japan using mathematical modeling approach.
+We present an epidemiological analysis of RSV outbreaks in Japan using mathematical modeling approach.
 Our analysis revealed semiannual cycles in seasonal RSV transmission, which correlate with specific humidity.
 We found that these semiannual cycles allowed a sudden shift in the seasonality of RSV outbreaks through an increase in population-level susceptibility.
 We tentatively hypothesize that an increase in childcare capacity in Japan may be a main driver of the increase in  population-level susceptibility.
 
 Our analysis revealed considerable heterogeneity in epidemic dynamics across major islands in Japan.
 We showed that these differences could be explained by the differences in underlying seasonal transmission.
-Notably, we found robust, quadratic relationship between the estimated transmission rates and mean specific humidity across four major islands (Honshu, Shikoku, Kyushu, and Ryukyu), indicating low transmission at intermediate levels of specific humidity.
+Notably, we found a robust, quadratic relationship between the estimated transmission rates and mean specific humidity across four major islands (Honshu, Shikoku, Kyushu, and Ryukyu), indicating low transmission at intermediate levels of specific humidity.
 These findings echo earlier studies that demonstrated similar relationships for RSV \citep{baker2019epidemic} and influenza \citep{tamerius2013environmental}.
 The robustness of this quadratic relationship across islands exhibiting different climate conditions suggests a possibility that climate-driven transmission may be, in part, facilitated by human behavior: for example, an increase in time spent indoors during low and high humidity seasons can contribute to increased transmission.
 
@@ -259,13 +259,13 @@ Despite these limitations, our model likely represents a parsimonious approximat
 We tentatively hypothesized that the Comprehensive Support System for Children and Childcare may have contributed to the increase in population-level susceptibility, but other mechanisms may have contributed as well.
 For example, \swp{???}.
 
-Intervention to slow the transmission of COVID-19 have disrupted the circulation of many pathogens \citep{baker2020impact}, including RSV epidemics in Japan.
+Interventions to slow the transmission of COVID-19 have disrupted the circulation of many pathogens \citep{baker2020impact}, including RSV epidemics in Japan.
 This disruption has added major challenges to predicting future outbreaks, which prevented us from making long-term predictions.
 Moving forward, it would be interesting to see whether RSV outbreaks in Japan return to fall or winter outbreaks.
 
 Understanding how endogenous and exogenous factors shape epidemic dynamics is critical to predicting future outbreaks and making public health decisions.
-Our analysis shows that interplay between climate-driven transmission and subtle changes in population-level susceptibility can cause sudden transition in epidemic dynamics.
-Our results also highlight the importance of serological surveillance \citep{mina2020global,nguyen2022enterovirus}, which would have allowed us to directly measure changed in population-level susceptibility.
+Our analysis shows that the interplay between climate-driven transmission and subtle changes in population-level susceptibility can cause a sudden transition in epidemic dynamics.
+Our results also highlight the importance of serological surveillance \citep{mina2020global,nguyen2022enterovirus}, which would have allowed us to directly measure changes in population-level susceptibility.
 More broadly, our analysis demonstrates that detailed epidemiological time series data can allow us to tease apart endogenous and exogenous factors in explaining dynamical transitions, offering unique insights into a long-standing ecological question.
 
 \section*{Methods}
