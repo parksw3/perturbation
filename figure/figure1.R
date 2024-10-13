@@ -86,6 +86,16 @@ g2 <- ggplot(japan_rsv_summ %>% filter(prefecture != "Okinawa")) +
     axis.title.x = element_blank()
   )
 
+dd1 <- japan_rsv_summ %>%
+  filter(prefecture != "Okinawa",
+         season=="2015-2016")
+
+dd2 <- japan_rsv_summ %>%
+  filter(prefecture != "Okinawa",
+         season=="2016-2017")
+
+mean(dd1$cog-dd2$cog)
+
 g3 <- ggplot(japan_rsv_summ) +
   geom_boxplot(aes(season, trough/pop), show.legend = FALSE, fill="#CCECF8") +
   scale_x_discrete("Season") +
