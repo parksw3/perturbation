@@ -52,7 +52,7 @@ fitdata <- fitlist %>%
   )
 
 fitdata_filter <- fitdata %>% 
-  filter(week==25, year < 2020,
+  filter(week==26, year < 2020,
          island %in% c("Honshu", "Shikoku", "Kyushu")) %>%
   mutate(
     yy=gsub("20", "", year)
