@@ -95,6 +95,7 @@
 }
 \newline
 \\
+Sang Woo Park, Inga, Emily, Wenchang, Gabe, Rachel Baker, Sarah Cobey, C. Jessica E. Metcalf, Bryan T. Grenfell
 \bigskip
 \end{flushleft}
 
@@ -124,9 +125,11 @@ In particular, \cite{baker2019epidemic} demonstrated a quadratic relationship be
 RSV in Japan presents a unique case study relative to other countries: In contrast to stable seasonal incidence generally observed, a sudden, dramatic transition from winter to fall RSV outbreaks was observed in Japan in 2016 \citep{miyama2021seasonal,wagatsuma2021shifts}.
 \cite{wagatsuma2021shifts} hypothesized that changes in climate and an increase in inbound overseas travelers may be jointly responsible for this shift in seasonality.
 However, their conclusion relied on correlational analyses, and little ecological support was provided for their proposed mechanism.
-Understanding the sudden shift in RSV seasonality is a necessary step for predicting future RSV outbreaks, as well as for timely deployment of monoclonal antibodies and vaccination.
+Understanding the sudden shift in RSV seasonality is a necessary step for predicting future RSV outbreaks, as well as for timely deployment of monoclonal antibodies and vaccination \citep{mazur2023respiratory}.
 
-Here, we analyzed the time series of RSV cases from Japan (\fref{fig1}) to identify the drivers of a sudden shift in seasonality between 2016 and 2017. We developed a flexible modeling approach to account for seasonal transmission and time-varying effects of non-pharmaceutical interventions (NPIs) that were introduced in response to the COVID-19 pandemic. This study extends previous work by \cite{baker2020impact} demonstrating that the accumulation of susceptibles during the NPI period can cause a larger outbreak when NPIs are lifted.
+Here, we analyzed the time series of RSV cases from Japan (\fref{fig1}) to identify the drivers of a sudden shift in seasonality between 2016 and 2017. 
+We combined a parsimonious model of disease transmission with Bayesian statistical framework to infer RSV transmission patterns across different islands.
+We used inferred transmission patterns to explore how changes in susceptibility can lead to a sudden shift in seasonality.
 Our analysis offers novel insights into drivers of dynamical transition in seasonal respiratory epidemics.
 
 \section*{Results}
@@ -293,7 +296,9 @@ Statistics on the number of children attending childcare facilities were obtaine
 
 \subsection*{Climate data}
 
-\swp{Need help from Wenchang}
+The specific humidity data used in this study is from European Centre for Medium-Range Weather Forecasts (ECMWF) Reanalysis v5 (ERA5) \citep{hersbach2020era5}. The original data are houly with a horizontal resolution of about 31km. 
+We first resample the hourly data to obtain daily mean values and then perform spatial average over cell grids within each prefecture in Japan. 
+\swp{The daily time series of specific humidity is further resampled to obtain weekly mean values.}
 
 \subsection*{Center of gravity and epidemic trough}
 
