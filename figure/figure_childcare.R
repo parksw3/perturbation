@@ -65,6 +65,7 @@ g1 <- ggplot(fitdata_filter) +
   geom_point(aes(year, S/pop)) +
   geom_line(aes(year, total/2.6e7), col="#E02938") +
   geom_point(aes(year, total/2.6e7), col="#E02938", shape="triangle") +
+  scale_x_continuous("Year") +
   scale_y_continuous("Proportion susceptible",
                      sec.axis = sec_axis(~.*26, "Number of children\nattending childcare facilities\n(million)")) +
   facet_wrap(~island, nrow=1) +
@@ -75,6 +76,10 @@ g1 <- ggplot(fitdata_filter) +
     axis.text.y.right = element_text(color="#E02938"),
     axis.title.y.right = element_text(color="#E02938")
   )
+
+lapply(split(fitdata_filter, fitdata_filter$island)[2:4], function(x) {
+  cor.test(x$S, x$total)
+})
 
 g2 <- ggplot(fitdata_filter) +
   geom_smooth(aes(total/1e6, S/pop), method="lm", col="#E02938", fill="#E02938", fullrange=TRUE) +
@@ -89,6 +94,7 @@ g2 <- ggplot(fitdata_filter) +
     strip.background = element_blank()
   )
 
-gcomb <- ggarrange(g1, g2, nrow=2)
+gcomb <- ggarrange(g1, g2, nrow=2,
+                   labels=c("A", "B"))
 
 ggsave("figure_childcare.pdf", gcomb, width=8, height=6)

@@ -22,14 +22,23 @@ japan_rsv_prefecture2 <- japan_rsv_prefecture %>%
 g1 <- ggplot(japan_rsv_prefecture2) +
   geom_raster(aes(year+(week-1)/52, reorder(prefecture, lat), fill=relcases)) +
   geom_vline(xintercept = 2013:2024, lty=2, col="white") +
+  geom_segment(
+    # Change the 0 and 25's to be appropriate to your data
+    x = 2016.7, xend = 2016.7, y = 52, yend= Inf,
+    arrow = arrow(length = unit(8, "pt")),
+    col="#E02938",
+    lwd=1
+  ) +
   scale_x_continuous(breaks=2013:2024, expand=c(0, 0)) +
   scale_y_discrete(expand = c(0, 0)) +
   scale_fill_viridis_c("Relative cases", 
                        breaks=c(0, 1, 2),
                        labels=c("0", "1", ">2")) +
+  coord_cartesian(clip = "off") +
   theme(
     axis.title = element_blank(),
-    legend.position = "bottom"
+    legend.position = "bottom",
+    plot.margin = margin(13.5, 5.5, 5.5, 5.5)
   )
 
 japan_rsv_summ <- lapply(split(japan_rsv_prefecture, japan_rsv_prefecture$prefecture), function(x) {
