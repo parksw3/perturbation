@@ -163,7 +163,7 @@ Finally, in contrast to all other islands, RSV outbreaks in Ryukyu island exhibi
 
 We first began by asking whether a simple Susceptible-Infected-Recovered-Susceptible (SIRS) model can capture the observed RSV outbreak dynamics in Japan, including the sudden change in outbreak seasonality.
 The SIRS model is the simplest model that allows for the possibility of immune waning and therefore represents one of the most parsimonious models for explaining outbreak dynamics of respiratory infections.
-Here, we extended the standard SIRS model such that we could simultaneously estimate periodic seasonal transmission rates and non-periodic changes in transmission due to NPI measures that were implemented to prevent COVID-19  (Methods).
+Here, we extended the standard SIRS model such that we could simultaneously estimate periodic seasonal transmission rates and non-periodic changes in transmission due to NPI measures that were implemented to prevent COVID-19 (Materials and methods).
 
 \begin{figure}[!th]
 \includegraphics[width=\textwidth]{../figure/figure_comb_sirs_npi.pdf}
@@ -183,26 +183,29 @@ Shaded regions represent the 95\% credible intervals from the posterior distribu
 \end{figure}
 
 The SIRS model was able to reproduce the observed dynamics across all five islands, including changes in seasonality that occurred during 2016--2017 as well as post-pandemic changes in outbreak patterns (\fref{fig2}A).
-Interestingly, we estimated semiannual peaks in transmission rates across all islands, except for Hokkaido (\fref{fig2}B).
-These semiannual patterns in transmission were explained by the nonlinear effects of specific humidity:
-in line with \cite{baker2019epidemic}, we estimated that transmission would peak at a low and high mean specific humidity (\fref{fig2}C).
-Interestingly, we found that this quadratic relationship between mean specific humidity and transmission rates was robust across four islands (Honshu, Shikoku, Kyushu, and Ryukyu), with Ryukyu island exhibiting minimum RSV transmission at a much higher mean specific humidity than other islands (\fref{fig2}C).
-Combining transmission rate estimates from all five islands still yield a quadratic relationship but the joint relationship poorly capture the humidity-transmission relationship in the Ryukyu island (Supplementary Figure S1).
+We estimated semiannual peaks in transmission rates in four islands (Honshu, Shikoku, Kyushu, and Ryukyu), which were explained by the quadratic effects of specific humidity (\fref{fig2}B):
+in line with \cite{baker2019epidemic}, we estimated that transmission would peak at a low and high mean specific humidity(\fref{fig2}C).
+Interestingly, we found that minimum RSV transmission occurred at a much higher mean specific humidity in Ryukyu island than in other three islands (\fref{fig2}C).
+We did not find semiannual transmission rate patterns or quadratic humidity-transmission relationship for Hokkaido island (\fref{fig2}B--C);
+instead, we found that transmission decreased at very low specific humidity ($<5\,\mathrm{g/kg}$).
+Combining transmission rate estimates from all five islands still gave a quadratic humidity-transmission relationship for specific humidity between $approx5\,\mathrm{g/kg}$ and $\approx18\,\mathrm{g/kg}$, but the joint relationship poorly captured the humidity-transmission relationship in the Ryukyu island (Supplementary Figure S1).
 
-Across all five islands, we estimated a considerable reduction in transmission during 2020  (\fref{fig2}D);
+Across all five islands, we estimated large reductions in transmission during 2020  (\fref{fig2}D);
 however, there was large heterogeneity in the overall shape of the estimated NPI effects as well as the degree of transmission reduction.
 The reduction in transmission rates caused an increase in the susceptible pool (\fref{fig2}E), which allowed a large outbreak when NPIs were lifted (\fref{fig2}A);
-this is also consistent with \cite{baker2019epidemic}.
+this is also consistent \cite{baker2019epidemic} who predicted that an accumulation of the susceptible host population during the NPI period will eventually lead to a large outbreak.
 
 \subsection*{Mechanisms for sudden changes in seasonality}
 
 Since our SIRS model could accurately capture the observed dynamics, we were able to use our fits to further tease apart the mechanisms underlying sudden changes in seasonality of the RSV outbreaks.
-To do so, we first began by evaluating the changes in the proportion of susceptible and infected individuals at the beginning of the season between 2013 and 2019;
-we focused on three main islands that exhibited clear changes in seasonality: Honshu, Shikoku, and Kyushu islands. 
+To do so, we first began by evaluating the changes in the proportion of susceptible and infected individuals at the beginning of the season between 2013 and 2019.
+We focused on three main islands that exhibited clear changes in seasonality: Honshu, Shikoku, and Kyushu islands. 
 
-We found a consistent increase in the proportion of susceptible and infected individuals at the beginning of each season between 2013 and 2019 across three main islands (\fref{fig3}A).
+Across three main islands, we found a consistent increase in the proportion of susceptible and infected individuals at the beginning of each season between 2013 and 2019 (\fref{fig3}A).
 These changes also corresponded with a decrease in center of gravity (\fref{fig3}A).
 A more detailed comparison of epidemic trajectories illustrated that an increase in the susceptible pool at the beginning of the season can drive a sudden shift in seasonality (\fref{fig3}B).
+
+To understand why we see a bigger shift in seasonal outbreak patterns in Kyushu island than in Honshu and Shikoku islands, we explored how 
 
 We also found considerable heterogeneity across islands in differences in peak epidemic timing associated with changes in seasonality (\fref{fig3}B): 9--12 weeks (Honshu), 6--11 weeks (Shikoku), and 18--20 weeks (Kyushu).
 This heterogeneity can be explained by the differences in the seasonal transmission patterns (\fref{fig3}C--G).
@@ -307,7 +310,7 @@ We further summarized the daily time series of specific humidity into weekly mea
 \subsection*{Center of gravity and epidemic trough}
 
 In order to characterize changes in the timing of the epidemic, we quantified the center of gravity of RSV cases for each RSV season at each prefecture.
-Here, we excluded the Okinawa prefecture, which the southernmost prefecture of Japan, due to differences in RSV seasonality:
+Here, we excluded the Okinawa prefecture, which is the southernmost prefecture of Japan, due to differences in RSV seasonality:
 in contrast to all other prefectures that exhibit winter outbreaks, summer outbreaks are observed in the Okinawa prefecture.
 To compute the center of gravity, we defined the RSV season from week 27 of the current year to week 26 of the next year and numbered each week of season from 1 (starting from week 27 of a given year) to 52 (ending at week 26 of the following year).
 Then, for each season, we calculated center of gravity by taking the weighted mean of the week of season, weighted by the number of cases.
