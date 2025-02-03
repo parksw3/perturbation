@@ -3,6 +3,7 @@ library(dplyr)
 library(ggplot2); theme_set(theme_bw(base_family="Times"))
 library(egg)
 library(rstan)
+library(mgcv)
 source("../R/firstup.R")
 source("../script/script_data.R")
 
@@ -69,7 +70,7 @@ allsim_summ <- allsim %>%
 
 g1 <- ggplot(allsim_summ) +
   geom_raster(aes(I0, S0, fill=cog)) +
-  geom_vline(xintercept=unique(allsim$I0)[9], lty=2, color="white") +
+  # geom_vline(xintercept=unique(allsim$I0)[9], lty=2, color="white") +
   geom_point(data=fitdata_filter, aes(I/pop, S/pop), size=6, shape=21, fill="white", stroke=0.8, alpha=0.7) +
   geom_text(data=fitdata_filter, aes(I/pop, S/pop, label=yy), size=3) +
   scale_x_log10("I(0)", expand=c(0, 0)) +
@@ -191,11 +192,23 @@ g7 <- ggplot() +
 
 g8 <- ggplot(simulate_sirs_interpolate) +
   geom_raster(aes(amp, interp, fill=shift_cases)) +
+  annotate("text", x=0.15, y=0, label="C", hjust=0, vjust=1,
+           size=5, fontface = "bold") +
+  annotate("text", x=0.247, y=0, label="D", hjust=1, vjust=1,
+           size=5, fontface = "bold") +
+  annotate("text", x=0.15, y=1, label="E", hjust=0, vjust=0,
+           size=5, fontface = "bold") +
+  annotate("text", x=0.247, y=1, label="F", hjust=1, vjust=0,
+           size=5, fontface = "bold") +
   scale_x_continuous("Seasonal transmission amplitude", expand=c(0, 0), position="top") +
   scale_y_reverse("Interpolation coefficient", expand=c(0, 0),
                   breaks=c(0, 0.25, 0.5, 0.75, 1),
                   labels=c("Honshu\n0.00", 0.25, "0.50", 0.75, "Kyushu\n1.00")) +
-  scale_fill_viridis_c("Differences in peak timing (weeks)") +
+  scale_fill_steps("Differences in peak timing (weeks)",
+                   limits=c(12, 18),
+                   low="white",
+                   high="#FF495C") +
+  # scale_fill_viridis_c() +
   theme(
     legend.position = "bottom"
   )
