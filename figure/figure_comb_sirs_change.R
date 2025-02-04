@@ -70,7 +70,7 @@ allsim_summ <- allsim %>%
 
 g1 <- ggplot(allsim_summ) +
   geom_raster(aes(I0, S0, fill=cog)) +
-  # geom_vline(xintercept=unique(allsim$I0)[9], lty=2, color="white") +
+  geom_vline(xintercept=unique(allsim$I0)[9], lty=2, color="white") +
   geom_point(data=fitdata_filter, aes(I/pop, S/pop), size=6, shape=21, fill="white", stroke=0.8, alpha=0.7) +
   geom_text(data=fitdata_filter, aes(I/pop, S/pop, label=yy), size=3) +
   scale_x_log10("I(0)", expand=c(0, 0)) +
