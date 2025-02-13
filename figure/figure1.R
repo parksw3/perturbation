@@ -140,3 +140,18 @@ gcomb2 <- arrangeGrob(gcomb1, g4a, nrow=2, heights=c(3, 1))
 
 ggsave("figure1.pdf", gcomb2, width=14, height=8)
 ggsave("figure1.png", gcomb2, width=14, height=8)
+
+g5 <- ggplot(japan_rsv_summ) +
+  geom_boxplot(aes(season, cog), show.legend = FALSE, fill="#CCECF8") +
+  scale_x_discrete("Season") +
+  scale_y_continuous("Center of gravity (weeks)") +
+  facet_wrap(~island, scale="free", nrow=1) +
+  theme(
+    panel.grid = element_blank(),
+    panel.border = element_rect(linewidth=1),
+    axis.text.x = element_text(hjust=1, angle=45),
+    axis.title.x = element_blank(),
+    strip.background = element_blank()
+  )
+
+ggsave("figure1_cog.pdf", g5, width=10, height=3)
