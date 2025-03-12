@@ -36,15 +36,6 @@ japan_rsv_island <- japan_rsv_prefecture %>%
     island=factor(island, levels=c("Hokkaido", "Honshu", "Shikoku", "Kyushu", "Ryukyu"))
   )
 
-japan_birth_prefecture <- read.csv("../data_processed/japan_birth_weekly.csv") %>%
-  merge(japan_pop_prefecture)
-
-japan_birth_island <- japan_birth_prefecture %>%
-  group_by(island, time) %>%
-  summarize(
-    birth=sum(birth)
-  )
-
 japan_humidity_prefecture <- read.csv("../data_processed/data_processed_humidity.csv") %>%
   rename(prefecture=key) %>%
   merge(japan_pop_prefecture)

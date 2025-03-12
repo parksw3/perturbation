@@ -12,3 +12,7 @@ This repository contains all code and data used for the analysis.
 * `simulate_sirs`: contains R scripts for simulating the fitted SIRS model across different islands to explore the relationship between seasonal forcing and center of gravity
 * `stanfit_sirs`: contains R scripts for fitting SIRS model using Stan
 * `stanmodel`: constrains stan scripts for deterministic models 
+
+------
+
+All code was run on M2 MacBook Pro, 2023. Each model fit takes <10 minutes to run. All other code will take much less time than model fitting.
