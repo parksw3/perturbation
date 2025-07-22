@@ -29,14 +29,14 @@ g1 <- ggplot(japan_rsv_prefecture2) +
     col="#E02938",
     lwd=1
   ) +
-  scale_x_continuous(breaks=2013:2024, expand=c(0, 0)) +
+  scale_x_continuous("Year", breaks=2013:2024, expand=c(0, 0)) +
   scale_y_discrete(expand = c(0, 0)) +
   scale_fill_viridis_c("Relative cases", 
                        breaks=c(0, 1, 2),
                        labels=c("0", "1", ">2")) +
   coord_cartesian(clip = "off") +
   theme(
-    axis.title = element_blank(),
+    axis.title.y = element_blank(),
     legend.position = "bottom",
     plot.margin = margin(13.5, 5.5, 5.5, 5.5)
   )
@@ -91,8 +91,7 @@ g2 <- ggplot(japan_rsv_summ %>% filter(prefecture != "Okinawa")) +
   theme(
     panel.grid = element_blank(),
     panel.border = element_rect(linewidth=1),
-    axis.text.x = element_text(hjust=1, angle=45),
-    axis.title.x = element_blank()
+    axis.text.x = element_text(hjust=1, angle=45)
   )
 
 dd1 <- japan_rsv_summ %>%
@@ -112,8 +111,7 @@ g3 <- ggplot(japan_rsv_summ) +
   theme(
     panel.grid = element_blank(),
     panel.border = element_rect(linewidth=1),
-    axis.text.x = element_text(hjust=1, angle=45),
-    axis.title.x = element_blank()
+    axis.text.x = element_text(hjust=1, angle=45)
   )
 
 g4 <- ggplot(japan_rsv_island) +
@@ -127,8 +125,7 @@ g4 <- ggplot(japan_rsv_island) +
   theme(
     strip.background = element_blank(),
     panel.grid = element_blank(),
-    panel.border = element_rect(size=1),
-    axis.title.x = element_blank()
+    panel.border = element_rect(size=1)
   )
 
 g1a <- ggarrange(g1, labels="A")

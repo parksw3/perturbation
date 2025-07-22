@@ -45,3 +45,13 @@ japan_humidity_island <- japan_humidity_prefecture %>%
   summarize(
     humidity=mean(humidity)
   )
+
+japan_temperature_prefecture <- read.csv("../data_processed/data_processed_temperature.csv") %>%
+  rename(prefecture=key) %>%
+  merge(japan_pop_prefecture)
+
+japan_temperature_island <- japan_temperature_prefecture %>%
+  group_by(island, year, week) %>%
+  summarize(
+    temperature=mean(temperature)
+  )

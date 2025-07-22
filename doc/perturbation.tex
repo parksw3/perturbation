@@ -6,6 +6,9 @@
 \usepackage{xspace}
 %\usepackage{adjustbox}
 
+\usepackage{multirow}
+\usepackage{booktabs}
+
 \usepackage{pdflscape}
 
 \usepackage{grffile}
@@ -90,7 +93,7 @@
 \begin{flushleft}{
 	\Large
 	\textbf\newline{
-	  Interplay between climate, childhood mixing, and population-level susceptibility explains a sudden shift in RSV seasonality in Japan
+	  Interplay between climate, childhood mixing, and population-level susceptibility can explain a sudden shift in RSV seasonality in Japan
 	}
 }
 \newline
@@ -122,7 +125,7 @@ Titrating the relative importance of endogenous and exogenous drivers for dynami
 In Japan, respiratory syncytial virus (RSV), a major childhood respiratory pathogen, displayed a sudden, dramatic shift in outbreak seasonality (from winter to fall) in 2016. 
 This shift was not observed in any other countries.
 We use mathematical models to identify processes that could lead to this outcome.
-In line with previous analyses, we identify a robust quadratic relationship between mean specific humidity and transmission, with minimum transmission occurring at intermediate humidity.
+In line with previous analyses, we identify a robust quadratic relationship between mean specific humidity and transmission, with maximum transmission occurring at low or high humidity.
 This drives semiannual patterns of seasonal transmission rates that peak in summer and winter.
 Under this transmission regime, a subtle increase in population-level susceptibility can cause a sudden shift in seasonality, where the degree of shift is primarily determined by the interval between the two peaks of seasonal transmission rate.
 We hypothesize that an increase in children attending childcare facilities may have contributed to the increase in susceptibility through increased contact rates with susceptible hosts.
@@ -139,7 +142,7 @@ There is one important exception: detailed spatiotemporal surveillance data are 
 Respiratory syncytial virus (RSV) is a common childhood respiratory pathogen that infects nearly all children by the age of two, and is also an important risk factor for asthma and allergy development \citep{sigurs1995asthma,sigurs2010asthma,edwards2012microbiology}.
 RSV outbreaks typically exhibit annual or biennial patterns with relatively consistent seasonal incidence across years in many countries, including Canada \citep{paramo2023respiratory}, Korea \citep{kim2020investigation}, and the US \citep{pitzer2015environmental,baker2019epidemic}.
 Previous studies showed that climate-driven transmission plays a major role in driving RSV epidemic dynamics \citep{pitzer2015environmental,baker2019epidemic}.
-In particular, \cite{baker2019epidemic} demonstrated a quadratic relationship between specific humidity and RSV transmission with minimum transmission occurring at intermediate humidity.
+In particular, \cite{baker2019epidemic} demonstrated a quadratic relationship between specific humidity and RSV transmission with maximum transmission occurring at low and high humidity.
 
 RSV in Japan presents a unique case study relative to other countries: In contrast to stable seasonal incidence generally observed, a sudden, dramatic transition from winter to fall RSV outbreaks was observed in Japan in 2016 \citep{miyama2021seasonal,wagatsuma2021shifts}.
 To our knowledge, this change was not observed in other countries, including Australia \citep{nazareno2022modelled}, Canada \citep{canada-report}, China \citep{luo2022comparison,li2023defining,li2024characterising}, Korea \citep{kim2023molecular}, and the US \citep{rose2018respiratory,hansen2022mortality}.
@@ -161,7 +164,7 @@ Our analysis offers novel insights into drivers of dynamical transition in seaso
 \caption{
 \textbf{Observed changes in RSV outbreak dynamics in Japan.}
 (A) Relative RSV cases across 47 prefectures in Japan between 2013 and 2024.
-Relative cases are calculated by dividing the raw cases by the pre-pandemic maximum.
+Relative cases are calculated by dividing the raw cases by the maximum value before the COVID-19 pandemic.
 The red arrow indicates when the shift in seasonality occurred.
 (B) Estimates of center of gravity (i.e., the mean timing of an epidemic) across 46 prefectures, excluding Okinawa.
 (C) Estimates of the epidemic trough (i.e., the minimum number of cases in a season divided by the population size) across 47 prefectures.
@@ -196,7 +199,8 @@ Here, we extended the standard SIRS model such that we could simultaneously esti
 (B) Estimated periodic seasonal transmission rates.
 (C) Relationship between the estimated periodic seasonal transmission rates and mean specific humidity.
 Points represent seasonal transmission rate estimates across 52 weeks versus average humidity across 2013--2020.
-Lines represent the corresponding locally estimated scatterplot smoothing (LOESS) estimates.
+Blue lines and regions represent the corresponding locally estimated scatterplot smoothing (LOESS) estimates and corresponding 95\%  confidence intervals.
+Red lines and regions represent the corresponding quadratic regression fits and corresponding 95\% confidence intervals.
 (D) Estimated relative changes in transmission, capturing the impact of NPI measures.
 (E) Estimated proportion of the susceptible pool.
 Lines represent the estimated median of the posterior distribution.
@@ -206,12 +210,22 @@ Shaded regions represent the 95\% credible intervals from the posterior distribu
 \end{figure}
 
 Accounting for flexible changes in seasonal transmission rates that deviate from standard sinusoidal shapes allowed the SIRS model to reproduce the observed dynamics across all five islands, including changes in seasonality that occurred during 2016--2017 as well as post-pandemic changes in outbreak patterns (\fref{fig2}A).
-In contrast to most seasonal respiratory pathogens, which exhibit an annual cycle in transmission pattern, we estimated semiannual peaks in transmission rates in four islands (Honshu, Shikoku, Kyushu, and Ryukyu), which were explained by the quadratic effects of specific humidity (\fref{fig2}B):
-in line with \cite{baker2019epidemic}, we estimated that transmission would peak at a low and high mean specific humidity(\fref{fig2}C).
+In contrast to most seasonal respiratory pathogens, which exhibit an annual cycle in transmission pattern, we estimated semiannual peaks in transmission rates in four islands: Honshu, Shikoku, Kyushu, and Ryukyu (\fref{fig2}B).
+These semiannual peaks in transmission rates were explained by the quadratic effects of specific humidity:
+in line with \cite{baker2019epidemic}, we estimated that transmission would be maximized at a low and high mean specific humidity and minimized at intermediate mean specific humidity (\fref{fig2}C).
 Interestingly, we found that minimum RSV transmission occurred at a much higher mean specific humidity in Ryukyu island than in other three islands (\fref{fig2}C).
 We did not find semiannual transmission rate patterns or quadratic humidity-transmission relationship for Hokkaido island (\fref{fig2}B--C);
 instead, we found that transmission decreased at very low specific humidity ($<5\,\mathrm{g/kg}$).
-Combining transmission rate estimates from all five islands still gave a quadratic humidity-transmission relationship for specific humidity between $approx5\,\mathrm{g/kg}$ and $\approx18\,\mathrm{g/kg}$, but the joint relationship poorly captured the humidity-transmission relationship in the Ryukyu island (Supplementary Figure S3).
+Differences in the ranges of observed mean specific humidity as well as the humidity-transmission relationship likely reflect heterogeneity in climate conditions.
+In particular, Honshu, Shikoku, and Kyushu islands are clustered around the main part of Japan, whereas Hokkaido and Ryukyu islands are located in the north and south from main islands, respectively (Supplementary Figure S2).
+Differences in transmission patterns across latitudinal gradient have been reported in other countries, including the US and Mexico \citep{baker2019epidemic}.
+Combining transmission rate estimates from all five islands still gave a quadratic humidity-transmission relationship for specific humidity between $\approx 5\,\mathrm{g/kg}$ and $\approx18\,\mathrm{g/kg}$, but the joint relationship poorly captured the humidity-transmission relationship in the Ryukyu island (Supplementary Figure S3).
+
+We also found similar quadratic relationships between the estimated transmission rates and mean temperature (Supplementary Figure S4).
+Performing bivariate quadratic regressions against both humidity and temperature showed significant, positive effects of the quadratic humidity term in Honshu ($p=0.01$) and Ryukyu ($p<0.01$) islands (Supplementary Table S1).
+We found positive effects of the quadratic humidity term in Kyushu island but this effect was not significant ($p=0.27$; Supplementary Table S1).
+We found negative effects of the quadratic humidity term in Shikoku island but this effect was almost close to zero and not significant ($p=0.67$; Supplementary Table S1).
+However, we note that mean temperature and mean specific humidity are almost perfectly correlated, with correlation coefficients $>0.96$ in all islands (Supplementary Figure S5), and therefore the bivariate regression cannot tease apart the effects of humidity and temperature separately.
 
 Across all five islands, we estimated large reductions in transmission during 2020  (\fref{fig2}D);
 however, there was large heterogeneity in the overall shape of the estimated NPI effects as well as the degree of transmission reduction.
@@ -223,7 +237,7 @@ This observation is also consistent with \cite{baker2019epidemic} who predicted 
 Since the mechanistic SIRS model was able to accurately capture the observed transition in seasonality, we posit that it captures the relevant mechanisms for driving this pattern.
 Thus, we should be able to use the inferred dynamics to further tease apart the mechanisms underlying sudden changes in seasonality of the RSV outbreaks.
 To do so, we first began by evaluating the changes in the proportion of susceptible and infected individuals at the beginning of the season between 2013 and 2019.
-We focused on three main islands that exhibited clear changes in seasonality: Honshu, Shikoku, and Kyushu islands. 
+We focused on three islands where the sudden transition in RSV outbreak seasonality from winter to fall was observed: Honshu, Shikoku, and Kyushu islands. 
 
 Across three main islands, we found a consistent increase in the proportion of susceptible and infected individuals at the beginning of each season between 2013 and 2019 (\fref{fig3}A).
 These changes also corresponded with a decrease in center of gravity (\fref{fig3}A).
@@ -236,7 +250,7 @@ Specifically, the transmission pattern in Kyushu exhibited a bigger amplitude an
 These differences were explored by varying the amplitude of the seasonal transmission rate ($x$-axis on \fref{fig3}G) and the degree of interpolation ($y$-axis on \fref{fig3}G), where the interpolation coefficients of 0 and 1 correspond to the seasonality in Honshu and Kyushu islands, respectively.
 Simulating the SIRS model using interpolated seasonal transmission rates showed that a large seasonal amplitude and wider trough cause larger changes in the timing of epidemic peak (\fref{fig3}G). 
 
-We did not observe a shift in RSV seasonality in Ryukyu island (\fref{fig1}E) despite the inferred quadratic humidity-transmission relationship (\fref{figu2}B).
+We did not observe a shift in RSV seasonality in Ryukyu island (\fref{fig1}E) despite the inferred quadratic humidity-transmission relationship (\fref{fig2}B).
 In Supplementary Materials, we show that there was limited variation in population-level susceptibility between 2014--2019 in Ryukyu island, explaining the lack of change in RSV seasonality (Supplementary Figure S4A).
 
 \begin{figure}[!th]
@@ -263,7 +277,16 @@ Gray lines represent the estimated transmission rates the Honshu island as a vis
 
 \subsection*{Mechanisms for an increase in population-level susceptibility}
 
+The simple SIRS model predicted an increase in the susceptible pool from 2013 to 2019
+
 So what mechanisms caused the population-level susceptibility to increase over time in Japan?
+
+
+
+Previously, \cite{wagatsuma2021shifts} hypothesized that changes in climate and an increase in inbound overseas travelers may be both responsible for this shift in seasonality.
+While an increase in overseas travelers may also contribute to the increase in contact rates and therefore the effective susceptibility against RSV, it is likely to have weak effects given that the mean age of infection for RSV is typically very young;
+for example, a local surveillance effort in Kyoto reported that $>80\%$ of PCR confirmed RSV infections were derived from $<6$-year old in 2023--2024 \citep{matsumura2025epidemiology}.
+
 We hypothesized that the Comprehensive Support System for Children and Childcare, which was enacted in 2012 and launched in 2015, brought more children into the daycare system and thus contributed to an increase in population-level susceptibility.
 This hypothesis builds on the work of \cite{dehaan2024age} who previously suggested that increase in childcare attendance may have contributed to a large change in the seasonality of Kawasaki disease in Japan in the mid-2010s.
 An expansion of childcare facilities would increase contact rates among children, which in turn would increase the probability of exposure and therefore the effective susceptibility against RSV infections.
@@ -300,9 +323,8 @@ The robustness of this quadratic relationship across islands exhibiting differen
 We note that this relationship is correlational, rather than causal, and therefore any other climate variables (e.g., temperature or rainfall) or seasonal variation in human behavior (e.g., school terms) that correlate with seasonal variation in specific humidity will be implicitly captured by this relationship.
 
 We tentatively hypothesized that the Comprehensive Support System for Children and Childcare may have contributed to the increase in population-level susceptibility, but other mechanisms may have contributed as well.
-For example, \cite{wagatsuma2021shifts} hypothesized that changes in climate and an increase in inbound overseas travelers may be both responsible for this shift in seasonality.
-While an increase in overseas travelers may also contribute to the increase in contact rates and therefore the effective susceptibility against RSV, it is likely to have weak effects given that the mean age of infection for RSV is typically very young;
-for example, a local surveillance effort in Kyoto reported that $>80\%$ of PCR confirmed RSV infections were derived from $<6$-year old in 2023--2024 \citep{matsumura2025epidemiology}.
+
+
 Another competing hypothesis that could lead to an increase in susceptibility would be strain evolution:
 for example, one study noted that L172Q/S173L mutant strains of RSV B that became dominant around 2016 had reduced susceptibility against monoclonal antibodies \citep{okabe2024amino}.
 However, it is not yet clear how this mutation translates to susceptibility against infection-derived antibodies.
@@ -438,7 +460,7 @@ We imposed weakly informative priors on all other parameters:
 1/\nu &\sim \textrm{Half-Normal}(0, 200)\\
 \omega &\sim \textrm{Half-Normal}(0, 200)\\
 s(0) &\sim \textrm{Normal}(0.08, 0.02)\\
-i(0) &\sim \textrm{Half-Normal}(0, 0.001)\\
+i(0) &\sim \textrm{Half-Normal}(0, 0.001)
 \end{align}
 where $s(0)$ and $i(0)$ represent the initial proportion of susceptible and infected individuals such that the initial conditions are given by: $S(0) = Ns(0)$ and $I(0) = N i(0)$.
 
@@ -482,7 +504,10 @@ In doing so, all other parameters, including the mean transmission rate $\tsub{\
 
 \subsection*{Regression}
 
-We also performed a linear regression between the estimated proportion of susceptibles at the beginning of each season (week 26) against the number of children attending childcare facilities.
+We performed univariate quadratic regressions for the estimated transmission rates against mean specific humidity and mean temperature, separately.
+We also perform bivariate quadratic regressions for the estimated transmission rates using both mean specific humidity and mean temperature as covariates.
+
+We performed a linear regression between the estimated proportion of susceptibles at the beginning of each season (week 26) against the number of children attending childcare facilities.
 For simplicity, the regression was performed using median estimates for the susceptible proportions.
 We did not have data on the number of children attending childcare facilities broken down by island level and so we used the national-level data instead.
 
@@ -504,12 +529,60 @@ B.T.G. and C.J.E.M. acknowledge support from Princeton Catalysis Initiative and 
 \setcounter{equation}{0}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thetable}{S\arabic{table}}
 
 \section*{Supplementary Materials}
 
+\subsection*{Supplementary Table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{l|l|l|r}
+\hline
+\textbf{Island} & \textbf{Variable} & \textbf{Coefficient} & \textbf{p-value} \\
+\hline
+\multirow{5}{*}{Hokkaido} & Intercept & 4.28*** & $<0.001$ \\
+                            & Humidity & 1.26** & 0.001 \\
+                            & Humidity$^2$ & -0.02 & 0.08 \\
+                            & Temperature & -0.13 & 0.05 \\
+                            & Temperature$^2$ & -0.02*** & $<0.001$ \\
+\hline
+\multirow{5}{*}{Honshu} & Intercept & 6.73*** & $<0.001$ \\
+                            & Humidity & 0.38 & 0.19 \\
+                            & Humidity$^2$ & 0.03* & 0.01 \\
+                            & Temperature & 0.03 & 0.80 \\
+                            & Temperature$^2$ & -0.02*** & $<0.001$ \\
+\hline
+\multirow{5}{*}{Shikoku} & Intercept & 12.25*** & $<0.001$ \\
+                            & Humidity & 0.43 & 0.30 \\
+                            & Humidity$^2$ & -0.01 & 0.67 \\
+                            & Temperature & -0.84*** & $<0.001$ \\
+                            & Temperature$^2$ & 0.02* & 0.01 \\
+\hline
+\multirow{5}{*}{Kyushu} & Intercept & 9.91*** & $<0.001$ \\
+                            & Humidity & 0.52 & 0.07 \\
+                            & Humidity$^2$ & 0.01 & 0.27 \\
+                            & Temperature & -0.59*** & $<0.001$ \\
+                            & Temperature$^2$ & 0.00 & 0.60 \\
+\hline
+\multirow{5}{*}{Ryukyu} & Intercept & 14.07 & 0.06 \\
+                            & Humidity & -0.90 & 0.06 \\
+                            & Humidity$^2$ & 0.04** & $<0.01$ \\
+                            & Temperature & 0.15 & 0.86 \\
+                            & Temperature$^2$ & -0.01 & 0.56 \\
+\hline
+\end{tabular}
+\caption{
+\textbf{Bivariate quadratic regression of estimated transmission rate against mean specific humidity and mean temperature.}
+*$p<0.05$, **$p<0.01$, ***$p<0.001$.
+}
+\end{table}
+
+\pagebreak
+
 \subsection*{Supplementary Figures}
 
-\begin{figure}[!th]
+\begin{figure}[!pth]
 \includegraphics[width=\textwidth]{../figure/figure1_cog.pdf}
 \caption{
 \textbf{Estimates of center of gravity (i.e., the mean timing of an epidemic) across all prefectures, stratified by island.}
@@ -519,7 +592,7 @@ Hokkaido and Ryukyu islands each contain only one prefectures: Hokkaido and Okin
 
 
 
-\begin{figure}[!th]
+\begin{figure}[!pth]
 \includegraphics[width=\textwidth]{../figure/figure_map.pdf}
 \caption{
 \textbf{Colored map of Japan.}
@@ -529,7 +602,7 @@ Each of five major islands are marked by different colors.
 
 \pagebreak
 
-\begin{figure}[!th]
+\begin{figure}[!pth]
 \includegraphics[width=\textwidth]{../figure/figure_joint_climate.pdf}
 \caption{
 \textbf{Joint relationship between the estimated periodic seasonal transmission rates and mean specific humidity across all five islands.}
@@ -540,7 +613,19 @@ The line represent a generalized additive model fit using cubic spline basis.
 
 \pagebreak
 
-\begin{figure}[!th]
+\begin{figure}[!pth]
+\includegraphics[width=\textwidth]{../figure/figure_comb_sirs_npi_temp.pdf}
+\caption{
+\textbf{Relationship between the estimated periodic seasonal transmission rates and mean temperature humidity.}
+Points represent seasonal transmission rate estimates across 52 weeks versus average humidity across 2013--2020.
+Blue lines and regions represent the corresponding locally estimated scatterplot smoothing (LOESS) estimates and corresponding 95\%  confidence intervals.
+Red lines and regions represent the corresponding quadratic regression fits and corresponding 95\% confidence intervals.
+}
+\end{figure}
+
+\pagebreak
+
+\begin{figure}[!pth]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{../figure/figure_ryukyu_sirs_change.pdf}
 \caption{

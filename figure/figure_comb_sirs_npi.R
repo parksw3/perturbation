@@ -99,8 +99,7 @@ g1 <- ggplot(fitdata) +
   theme(
     strip.background = element_blank(),
     panel.grid = element_blank(),
-    panel.border = element_rect(linewidth=1),
-    axis.title.x = element_blank()
+    panel.border = element_rect(linewidth=1)
   )
 
 g2 <- ggplot(betadata) +
@@ -110,14 +109,13 @@ g2 <- ggplot(betadata) +
   # geom_line(data=fitdata %>% filter(type=="Without imported cases"),
   #           aes(year+(week-1)/52, est), col="#40B0A6", lwd=0.7)  +
   geom_line(aes(week, est), col="#E02938", lwd=0.7)  +
-  scale_x_continuous("Year", expand=c(0, 0)) +
+  scale_x_continuous("Week", expand=c(0, 0)) +
   scale_y_continuous("Transmission rate\n(1/week)", limits=c(4.4, 12)) +
   facet_wrap(~island, scale="free_y", nrow=1) +
   theme(
     strip.background = element_blank(),
     panel.grid = element_blank(),
-    panel.border = element_rect(linewidth=1),
-    axis.title.x = element_blank()
+    panel.border = element_rect(linewidth=1)
   )
 
 japan_humidity_island2 <- japan_humidity_island %>%
@@ -125,12 +123,26 @@ japan_humidity_island2 <- japan_humidity_island %>%
   group_by(island, week) %>%
   summarise(humidity=mean(humidity))
 
+japan_temperature_island2 <- japan_temperature_island %>%
+  # filter(year < 2020) %>%
+  group_by(island, week) %>%
+  summarise(temperature=mean(temperature))
+
 betadata2 <- betadata %>%
+  merge(japan_humidity_island2)
+
+betadata_t2 <- betadata %>%
+  merge(japan_temperature_island2)
+
+betadata_comb <- betadata %>%
+  merge(japan_temperature_island2) %>%
   merge(japan_humidity_island2)
 
 g3 <- ggplot(betadata2) +
   geom_point(aes(humidity*1000, est)) +
-  geom_smooth(aes(humidity*1000, est), col="#E02938", fill="#E02938") +
+  geom_smooth(aes(humidity*1000, est), col="blue", fill="blue") +
+  geom_smooth(aes(humidity*1000, est), col="#E02938", fill="#E02938",
+              method="lm", formula=y~x+I(x^2)) +
   scale_x_continuous("Mean specific humidity (g/kg)") +
   scale_y_continuous("Transmission rate\n(1/week)", limits=c(5, 10.5)) +
   facet_wrap(~island, scale="free_y", nrow=1) +
@@ -139,6 +151,39 @@ g3 <- ggplot(betadata2) +
     panel.grid = element_blank(),
     panel.border = element_rect(linewidth=1)
   )
+
+g3a <- ggplot(betadata_t2) +
+  geom_point(aes(temperature, est)) +
+  geom_smooth(aes(temperature, est), col="blue", fill="blue") +
+  geom_smooth(aes(temperature, est), col="#E02938", fill="#E02938",
+              method="lm", formula=y~x+I(x^2)) +
+  scale_x_continuous("Mean temperature (°C)") +
+  scale_y_continuous("Transmission rate\n(1/week)", limits=c(5, 10.5)) +
+  facet_wrap(~island, scale="free_y", nrow=1) +
+  theme(
+    strip.background = element_blank(),
+    panel.grid = element_blank(),
+    panel.border = element_rect(linewidth=1)
+  )
+
+g3b <- ggplot(betadata_comb) +
+  geom_point(aes(temperature, humidity)) +
+  scale_x_continuous("Mean temperature (°C)") +
+  scale_y_continuous("Mean specific humidity (g/kg)") +
+  facet_wrap(~island, scale="free_y", nrow=1) +
+  theme(
+    strip.background = element_blank(),
+    panel.grid = element_blank(),
+    panel.border = element_rect(linewidth=1)
+  )
+
+lapply(split(betadata_comb, betadata_comb$island), function(x) {
+  cor(x$temperature, x$humidity)
+}) 
+
+lapply(split(betadata_comb, betadata_comb$island), function(x) {
+  summary(lm(est~1+I(humidity*1000)+I((humidity*1000)^2)+temperature+I(temperature^2), data=x))
+}) 
 
 g4 <- ggplot(npidata) +
   geom_vline(xintercept = 2013:2023, lty=3, col="gray50", lwd=0.5) +
@@ -156,8 +201,7 @@ g4 <- ggplot(npidata) +
   theme(
     strip.background = element_blank(),
     panel.grid = element_blank(),
-    panel.border = element_rect(linewidth=1),
-    axis.title.x = element_blank()
+    panel.border = element_rect(linewidth=1)
   )
 
 g5 <- ggplot(Sdata) +
@@ -174,11 +218,12 @@ g5 <- ggplot(Sdata) +
   theme(
     strip.background = element_blank(),
     panel.grid = element_blank(),
-    panel.border = element_rect(linewidth=1),
-    axis.title.x = element_blank()
+    panel.border = element_rect(linewidth=1)
   )
 
 gcomb <- ggarrange(g1, g2, g3, g4, g5, nrow=5,
                    labels=LETTERS[1:5])
 
 ggsave("figure_comb_sirs_npi.pdf", gcomb, width=12, height=10)
+ggsave("figure_comb_sirs_npi_temp.pdf", g3a, width=12, height=3)
+ggsave("figure_comb_sirs_npi_temp_hum.pdf", g3b, width=12, height=3)
