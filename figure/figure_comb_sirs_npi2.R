@@ -163,8 +163,8 @@ g4 <- ggplot(Sdata_summ) +
   # geom_line(data=fitdata %>% filter(type=="Without imported cases"),
   #           aes(year+(week-1)/52, est), col="#40B0A6", lwd=0.7)  +
   geom_point(aes(year+(week-1)/52, est/pop), col="#E02938", lwd=0.7)  +
-  scale_x_continuous("Year", expand=c(0, 0), limits=c(NA, 2024)) +
-  scale_y_continuous("Proportion\nsusceptible", limits=c(0, 0.26), expand=c(0, 0)) +
+  scale_x_continuous("Year", expand=c(0, 0), limits=c(NA, 2020)) +
+  scale_y_continuous("Proportion\nsusceptible", limits=c(0.08, 0.11), expand=c(0, 0)) +
   facet_wrap(~island, scale="free_y", nrow=1) +
   theme(
     strip.background = element_blank(),
