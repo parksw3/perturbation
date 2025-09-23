@@ -5,6 +5,7 @@
 This repository contains all code and data used for the analysis.
 
 * `R`: contains an R script for simulating the SIRS model
+* `analysis`: contains an R script for comparing changes in transmission rate before and after 2017
 * `data`: contains time series data for RSV cases and number of children attending childcare facilities as well as data on population sizes by prefecture
 * `doc`: contains latex files for the manuscript
 * `figure`: contains R scripts for plotting all figures
@@ -23,11 +24,12 @@ This repository contains all code and data used for the analysis.
   * `simulate_sirs_shikoku.R`: R script for simulating epidemic dynamics in Shikoku island
   * `simulate_sirs_interpolate.R`: R script for simulating epidemic dynamics using interpolated transmission rates
 * `stanfit_sirs`: contains R scripts for fitting SIRS model using Stan
+* `stanfit_sirs2`: contains R scripts for fitting SIRS model that allows for changes in transmission using Stan
 * `stanmodel`: constrains stan scripts for deterministic models 
 
 ------
 
-* R scripts in `stanfit_sirs` folder can be run independently as standalone files; these files need to be run first to generate rda files for model fits.
+* R scripts in `stanfit_sirs` and  `stanfit_sirs2` folders can be run independently as standalone files; these files need to be run first to generate rda files for model fits.
 * R scripts in `simulate_sirs` folder can be run after all stan models have been fitted. These scripts will generate rda files that contain a summary of analyses of fitted models.
 * R scripts in `figure` folder need to be run after all models have been fitted and analyzed.
 
