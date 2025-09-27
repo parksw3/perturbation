@@ -127,7 +127,7 @@ Titrating the relative importance of endogenous and exogenous drivers for dynami
 In Japan, respiratory syncytial virus (RSV), a major childhood respiratory pathogen, displayed a sudden, dramatic shift in outbreak seasonality (from winter to fall) in 2016. 
 This shift was not observed in any other countries.
 We use mathematical models to identify processes that could lead to this outcome.
-In line with previous analyses, we identify a robust quadratic relationship between mean specific humidity and transmission, with maximum transmission occurring at low and high humidity.
+In line with previous analyses, we identify a robust quadratic relationship between transmission against mean specific humidity and mean temperature, with maximum transmission occurring at low and high humidity as well as low and high temperature.
 This drives semiannual patterns of seasonal transmission rates that peak in summer and winter.
 Under this transmission regime, a subtle increase in population-level susceptibility or transmission can cause a sudden shift in seasonality, where the degree of shift is primarily determined by the interval between the two peaks of seasonal transmission rate.
 We hypothesize that an increase in children attending childcare facilities may have contributed to the increase in the overall RSV transmission through increased contact rates between susceptible and infected hosts.
@@ -228,6 +228,10 @@ We found positive effects of the quadratic humidity term in Kyushu island but th
 We found negative effects of the quadratic humidity term in Shikoku island but this effect was almost close to zero and not significant ($p=0.67$; Supplementary Table S1).
 However, we note that mean temperature and mean specific humidity are almost perfectly correlated, with correlation coefficients $>0.96$ in all islands (Supplementary Figure S5), and therefore the bivariate regression cannot tease apart the effects of humidity and temperature separately.
 
+We also compared R squared values from two separate quadratic regression models to test their ability to explain the variation in the estimated transmission rates using mean specific humidity and mean temperature as separate covariates (Supplementary Table S2).
+The humidity model outperformed the temperature model for Hoshu (0.39 vs 0.29) and Ryukyu  (0.59 vs 0.47) islands, whereas the temperature model outperformed the humidity model for Hokkaido (0.44 vs 0.52) and Shikoku (0.63 vs 0.72) islands.
+Both models had nearly identical R squared values for Kyushu islands (0.77 vs 0.77).
+
 Across all five islands, we estimated large reductions in transmission during 2020  (\fref{fig2}D);
 however, there was large heterogeneity in the overall shape of the estimated NPI effects as well as the degree of transmission reduction.
 The reduction in transmission rates caused an increase in the susceptible pool (\fref{fig2}E), which allowed a large outbreak when NPIs were lifted (\fref{fig2}A).
@@ -322,17 +326,20 @@ Red lines and shaded regions represent the best fitting linear regression and th
 \section*{Discussion}
 
 We present an epidemiological analysis of RSV outbreaks in Japan combining spatiotemporal observations with dynamical disease modeling.
-Our analysis revealed semiannual cycles in seasonal RSV transmission in four major islands (Honshu, Shikoku, Kyushu, and Ryukyu), which correlate with specific humidity.
+Our analysis revealed semiannual cycles in seasonal RSV transmission in four major islands (Honshu, Shikoku, Kyushu, and Ryukyu), which correlate with specific humidity and temperature.
 We found that these semiannual cycles allowed a sudden shift in the seasonality of RSV outbreaks in response to an increase in RSV transmission---this increase could be captured by either through changes in susceptibility or transmissibility.
 We hypothesize that an increase in childcare capacity through Comprehensive Support System for Children and Childcare may have contributed to the increase in RSV transmission \citep{dehaan2024age}.
 
 Our analysis revealed considerable heterogeneity in epidemic dynamics across major islands in Japan.
 We showed that these differences could be explained by the differences in underlying seasonal transmission.
-Notably, we found a robust, quadratic relationship between the estimated transmission rates and mean specific humidity across four major islands (Honshu, Shikoku, Kyushu, and Ryukyu), indicating low transmission at intermediate levels of specific humidity.
+Notably, we found a robust, quadratic relationship between the estimated transmission rates against mean specific humidity and mean temperature across four major islands (Honshu, Shikoku, Kyushu, and Ryukyu), indicating low transmission at intermediate levels of specific humidity.
 These findings echo earlier studies that demonstrated similar relationships for RSV \citep{baker2019epidemic} and influenza \citep{lowen2007influenza,shaman2009absolute,shaman2010absolute,tamerius2013environmental,lowen2014roles}.
-The robustness of this quadratic relationship across islands exhibiting different climate conditions suggests a possibility that climate-driven transmission may be, in part, facilitated by human behavior: for example, an increase in time spent indoors during low and high humidity seasons can contribute to increased transmission.
+However, given strong correlation between specific humidity and temperature, we were unable to identify the primary environmental driver from the current study.
+As discussed in \cite{baker2019epidemic}, the lack of animal models limit our ability to tease apart the role of different climate variables in driving RSV transmission.
+
+The robustness of this quadratic relationship across islands exhibiting different climate conditions also suggests a possibility that climate-driven transmission may be, in part, facilitated by human behavior: for example, an increase in time spent indoors during low and high humidity seasons can contribute to increased transmission.
 Further investigation is needed to establish the underlying mechanism behind how climate conditions affect the transmission of respiratory pathogens, especially across different environmental contexts (e.g., indoor vs outdoor).
-We note that this relationship is correlational, rather than causal, and therefore any other climate variables (e.g., temperature or rainfall) or seasonal variation in human behavior (e.g., school terms) that correlate with seasonal variation in specific humidity will be implicitly captured by this relationship.
+We note that this relationship is correlational, rather than causal, and therefore any other climate variables (e.g., rainfall) or seasonal variation in human behavior (e.g., school terms) that correlate with seasonal variation in specific humidity and temperature will be implicitly captured by this relationship.
 Understanding why the relationship between RSV transmission and humidity in Hokkaido island differs from other locations remains to be answered.
 
 We hypothesized that the Comprehensive Support System for Children and Childcare may have contributed to the increase in RSV transmission, but other mechanisms may have also contributed.
@@ -349,6 +356,13 @@ Specifically, the total rate of RSV transmission can be written as $\hat{\beta} 
 Then, an increase in contact rate $c$ can be captured by either increase in $S$ (the original model) and $\hat{\beta}$ (the sensitivity analysis).
 Therefore, conclusions from both models are consistent with our hypothesis that an increase in contact rates, especially among children, contributed to the sudden change in RSV seasonality.
 Detailed age structured surveillance data, alongside age structured model, will be needed to properly assess the relative contribution of potential mechanisms, such as increase in childhood mixing patterns or increase in inbound overseas travelers.
+
+Our model-based estimate of the initial susceptible fraction range between 8\%--11\%.
+However this estimate must be interpreted with care as it represents effective changes in population-level susceptibility, which can depend on many factors such as immunological and behavioral changes, rather than an actual susceptible fraction.
+Therefore, these estimates are not directly comparable to serological estimates of proportion seronegative.
+For example, \cite{nakajo2023age} recently estimated that >90\% of individuals above 3 years of age have been infected at least once by analyzing anti-pre-F protein antibody concentration data from the Netherlands \citep{andeweg2021population,berbers2021antibody}, but individuals with RSV antibodies can still permit reinfection.
+A cross-section serological assay from healthcare and non-healthcare workers at a pediatric medical facility in Japan found that >95\% of the participants were seropositive but only 63.5\% had greater than 8 fold neutralizing antibody titers \citep{shoji2025factors}, suggesting challenges in translating serological data to susceptible fraction.
+While our estimates are not inconsistent with these data, detailed age structured serological data and model are needed to accurately estimate changes in population-level susceptibility against RSV.
 
 Interventions to slow the transmission of COVID-19 have disrupted the circulation of many pathogens \citep{baker2020impact,eden2022off,chen2024covid,park2024predicting}, including RSV epidemics in Japan.
 This disruption has added major challenges to predicting future outbreaks, which prevented us from making long-term predictions.
@@ -609,6 +623,31 @@ B.T.G. and C.J.E.M. acknowledge support from Princeton Catalysis Initiative and 
 *$p<0.05$, **$p<0.01$, ***$p<0.001$.
 }
 \end{table}
+
+\pagebreak
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{l|l|l}
+\hline
+\textbf{Island} & \textbf{Humidity model} & \textbf{Temperature model} \\
+\hline
+Hokkaido & 0.44 & 0.52\\
+\hline
+Honshu & 0.39 & 0.29\\
+\hline
+Shikoku & 0.63 & 0.72\\
+\hline
+Kyushu & 0.77 & 0.77\\
+\hline
+Ryukyu & 0.59 & 0.47\\
+\hline
+\end{tabular}
+\caption{
+\textbf{Comparisons of R squared values from univariate quadratic regression of estimated transmission rate against mean specific humidity and mean temperature.}
+}
+\end{table}
+
 
 \pagebreak
 

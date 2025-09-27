@@ -185,6 +185,14 @@ lapply(split(betadata_comb, betadata_comb$island), function(x) {
   summary(lm(est~1+I(humidity*1000)+I((humidity*1000)^2)+temperature+I(temperature^2), data=x))
 }) 
 
+lapply(split(betadata_comb, betadata_comb$island), function(x) {
+  summary(lm(est~1+I(humidity*1000)+I((humidity*1000)^2), data=x))
+}) 
+
+lapply(split(betadata_comb, betadata_comb$island), function(x) {
+  summary(lm(est~1+temperature+I(temperature^2), data=x))
+}) 
+
 g4 <- ggplot(npidata) +
   geom_vline(xintercept = 2013:2023, lty=3, col="gray50", lwd=0.5) +
   geom_hline(yintercept = 1, lty=2) +
