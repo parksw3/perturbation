@@ -1,6 +1,6 @@
 library(tidyr)
 library(dplyr)
-library(mapdata)
+library(mapdata); theme_set(theme_bw(base_family="Helvetica"))
 library(ggplot2)
 library(ggfortify)
 source("../script/script_data.R")
