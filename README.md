@@ -1,5 +1,7 @@
 # Interplay between climate, childhood mixing, and population-level susceptibility explains a sudden shift in RSV seasonality in Japan
 
+[![DOI](https://zenodo.org/badge/742662924.svg)](https://doi.org/10.5281/zenodo.17396084)
+
 ------
 
 This repository contains all code and data used for the analysis.
