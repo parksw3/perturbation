@@ -5,3 +5,8 @@
 *.rda
 .DS_Store
 *.Rproj
+*.docx
+*.gz
+*.log
+*.bbl
+*.png
