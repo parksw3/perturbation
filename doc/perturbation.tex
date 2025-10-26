@@ -444,7 +444,7 @@ C(t) &= N_{SI}(t)\\
 \end{align}
 where $C(t)$ represents the incidence of infection, $\rho$ represents the under-reporting rate, and $\phi$ represents the overdispersion parameter.
 
-Parameter estimation was performed in a Bayesian framework using the rstan package \citep{carpenter2017stan}.
+Parameter estimation was performed in a Bayesian framework using the rstan package version 2.32.6 \citep{carpenter2017stan}.
 The following parameters and initial conditions were estimated simultaneously from the model: initial proportion of susceptible individuals $s(0)$, initial proportion of infected individuals $i(0)$, under-reporting rate $\rho$, transmission rate $\beta$, standard deviation in seasonal transmission rates $\tsub{\sigma}{seas}$, overdispersion parameter $\phi$, duration of immunity $1/\nu$, number of imported infections $\omega$, relative changes in transmission due to COVID-19 intervention measures $\delta(t)$, and standard deviation in transmission changes $\sigma_\delta$.
 Convergence was assess by ensuring low R-hat, high effective sample size, no divergent transitions, and no iterations that exceeded the maximum tree depth.
 The model struggled to converge for the analysis of Shikoku island---in this case, removing the $\mathrm{Normal}(1, 0.2)$ prior on $\delta(t)$ allowed us to fit the model.
@@ -492,13 +492,281 @@ We did not have data on the number of children attending childcare facilities br
 
 \section*{Data availability}
 
-All data are stored in a publicly available GitHub repository (\url{https://github.com/parksw3/perturbation}).
+All data are stored in a publicly available GitHub repository (\url{https://github.com/parksw3/perturbation}) \citep{perturbationzenodo}.
 
 \section*{Code availability}
 
-All code are stored in a publicly available GitHub repository (\url{https://github.com/parksw3/perturbation}).
+All code are stored in a publicly available GitHub repository (\url{https://github.com/parksw3/perturbation}) \citep{perturbationzenodo}.
 
-\bibliography{perturbation}
+\begin{thebibliography}{10}
+
+\bibitem{earn2000simple}
+David~JD Earn, Pejman Rohani, Benjamin~M Bolker, and Bryan~T Grenfell.
+\newblock A simple model for complex dynamical transitions in epidemics.
+\newblock {\em Science}, 287(5453):667--670, 2000.
+
+\bibitem{hastings2004transients}
+Alan Hastings.
+\newblock Transients: the key to long-term ecological understanding?
+\newblock {\em Trends in ecology \& evolution}, 19(1):39--45, 2004.
+
+\bibitem{hastings2018transient}
+Alan Hastings, Karen~C Abbott, Kim Cuddington, Tessa Francis, Gabriel Gellner, Ying-Cheng Lai, Andrew Morozov, Sergei Petrovskii, Katherine Scranton, and Mary~Lou Zeeman.
+\newblock Transient phenomena in ecology.
+\newblock {\em Science}, 361(6406):eaat6412, 2018.
+
+\bibitem{hunter1998cycles}
+Mark~D Hunter and Peter~W Price.
+\newblock Cycles in insect populations: delayed density dependence or exogenous driving variables?
+\newblock {\em Ecological Entomology}, 23(2):216--222, 1998.
+
+\bibitem{lundberg2000population}
+Per Lundberg, Esa Ranta, J{\"o}rgen Ripa, and Veijo Kaitala.
+\newblock Population variability in space and time.
+\newblock {\em Trends in Ecology \& Evolution}, 15(11):460--464, 2000.
+
+\bibitem{hernandez2012fluctuations}
+Eva Hernandez~Plaza, Luis Navarrete, Carlos Lacasta, and Jos{\'e}~Luis Gonz{\'a}lez-Andujar.
+\newblock Fluctuations in plant populations: role of exogenous and endogenous factors.
+\newblock {\em Journal of Vegetation Science}, 23(4):640--646, 2012.
+
+\bibitem{levin1997mathematical}
+Simon~A Levin, Bryan Grenfell, Alan Hastings, and Alan~S Perelson.
+\newblock Mathematical and computational challenges in population biology and ecosystems science.
+\newblock {\em Science}, 275(5298):334--343, 1997.
+
+\bibitem{anderson1991infectious}
+Roy~M Anderson and Robert~M May.
+\newblock {\em Infectious diseases of humans: dynamics and control}.
+\newblock Oxford university press, 1991.
+
+\bibitem{grenfell2001travelling}
+Bryan~T Grenfell, Ottar~N Bj{\o}rnstad, and Jens Kappey.
+\newblock Travelling waves and spatial hierarchies in measles epidemics.
+\newblock {\em Nature}, 414(6865):716--723, 2001.
+
+\bibitem{he2010plug}
+Daihai He, Edward~L Ionides, and Aaron~A King.
+\newblock Plug-and-play inference for disease dynamics: measles in large and small populations as a case study.
+\newblock {\em Journal of the Royal Society Interface}, 7(43):271--283, 2010.
+
+\bibitem{sigurs1995asthma}
+N~Sigurs, R~Bjarnason, F~Sigurbergsson, B~Kjellman, and B~Bjorksten.
+\newblock {Asthma and immunoglobulin E antibodies after respiratory syncytial virus bronchiolitis: a prospective cohort study with matched controls}.
+\newblock {\em Pediatrics}, 95(4):500--505, 1995.
+
+\bibitem{sigurs2010asthma}
+Nele Sigurs, Fatma Aljassim, Bengt Kjellman, Paul~D Robinson, Fridrik Sigurbergsson, Ragnar Bjarnason, and Per~M Gustafsson.
+\newblock {Asthma and allergy patterns over 18 years after severe RSV bronchiolitis in the first year of life}.
+\newblock {\em Thorax}, 65(12):1045--1052, 2010.
+
+\bibitem{edwards2012microbiology}
+Michael~R Edwards, Nathan~W Bartlett, Tracy Hussell, Peter Openshaw, and Sebastian~L Johnston.
+\newblock The microbiology of asthma.
+\newblock {\em Nature Reviews Microbiology}, 10(7):459--471, 2012.
+
+\bibitem{paramo2023respiratory}
+Marina~Vi{\~n}eta Paramo, Lilian~PL Ngo, Bahaa Abu-Raya, Frederic Reicherz, Rui~Yang Xu, Jeffrey~N Bone, Jocelyn~A Srigley, Alfonso Solimano, David~M Goldfarb, Danuta~M Skowronski, et~al.
+\newblock {Respiratory syncytial virus epidemiology and clinical severity before and during the COVID-19 pandemic in British Columbia, Canada: a retrospective observational study}.
+\newblock {\em The Lancet Regional Health--Americas}, 25:100582, 2023.
+
+\bibitem{kim2020investigation}
+Ga-Yeon Kim, Insoo Rheem, You~Hyun Joung, and Jae~Kyung Kim.
+\newblock {Investigation of occurrence patterns of respiratory syncytial virus A and B in infected-patients from Cheonan, Korea}.
+\newblock {\em Respiratory Research}, 21(1):191, 2020.
+
+\bibitem{pitzer2015environmental}
+Virginia~E Pitzer, C{\'e}cile Viboud, Wladimir~J Alonso, Tanya Wilcox, C~Jessica Metcalf, Claudia~A Steiner, Amber~K Haynes, and Bryan~T Grenfell.
+\newblock {Environmental drivers of the spatiotemporal dynamics of respiratory syncytial virus in the United States}.
+\newblock {\em PLoS Pathogens}, 11(1):e1004591, 2015.
+
+\bibitem{baker2019epidemic}
+Rachel~E Baker, Ayesha~S Mahmud, Caroline~E Wagner, Wenchang Yang, Virginia~E Pitzer, Cecile Viboud, Gabriel~A Vecchi, C~Jessica~E Metcalf, and Bryan~T Grenfell.
+\newblock Epidemic dynamics of respiratory syncytial virus in current and future climates.
+\newblock {\em Nature Communications}, 10(1):1--8, 2019.
+
+\bibitem{miyama2021seasonal}
+Takeshi Miyama, Nobuhiro Iritani, Takayuki Nishio, Tomohiko Ukai, Yuka Satsuki, Hiromi Miyata, Ayumi Shintani, Satoshi Hiroi, Kazushi Motomura, and Kazuo Kobayashi.
+\newblock {Seasonal shift in epidemics of respiratory syncytial virus infection in Japan}.
+\newblock {\em Epidemiology \& Infection}, 149:e55, 2021.
+
+\bibitem{wagatsuma2021shifts}
+Keita Wagatsuma, Iain~S Koolhof, Yugo Shobugawa, and Reiko Saito.
+\newblock {Shifts in the epidemic season of human respiratory syncytial virus associated with inbound overseas travelers and meteorological conditions in Japan, 2014--2017: An ecological study}.
+\newblock {\em PLoS One}, 16(3):e0248932, 2021.
+
+\bibitem{nazareno2022modelled}
+Allen~L Nazareno, David~J Muscatello, Robin~M Turner, James~G Wood, Hannah~C Moore, and Anthony~T Newall.
+\newblock {Modelled estimates of hospitalisations attributable to respiratory syncytial virus and influenza in Australia, 2009--2017}.
+\newblock {\em Influenza and other respiratory viruses}, 16(6):1082--1090, 2022.
+
+\bibitem{canada-report}
+{Public Health Agency of Canada}.
+\newblock {Respiratory virus detections in Canada}, 2024.
+\newblock https://www.canada.ca/en/public-health/services/surveillance/respiratory-virus-detections-canada.html.
+
+\bibitem{luo2022comparison}
+Ming Luo, Cheng Gong, Yan Zhang, Xue Wang, Yang Liu, Qing Luo, Maozhong Li, Aihua Li, Yiting Wang, Mei Dong, et~al.
+\newblock {Comparison of infections with respiratory syncytial virus between children and adults: a multicenter surveillance from 2015 to 2019 in Beijing, China}.
+\newblock {\em European Journal of Clinical Microbiology \& Infectious Diseases}, 41(12):1387--1397, 2022.
+
+\bibitem{li2023defining}
+Taoyu Li, Heping Fang, Xiangyu Liu, Yu~Deng, Na~Zang, Jun Xie, Xiaohong Xie, Zhengxiu Luo, Jian Luo, Yulin Liu, et~al.
+\newblock {Defining RSV epidemic season in southwest China and assessing the relationship between birth month and RSV infection: a 10-year retrospective study from June 2009 to May 2019}.
+\newblock {\em Journal of Medical Virology}, 95(7):e28928, 2023.
+
+\bibitem{li2024characterising}
+Maozhong Li, Bingbing Cong, Xiaofeng Wei, Yiting Wang, Lu~Kang, Cheng Gong, Qi~Huang, Xin Wang, You Li, and Fang Huang.
+\newblock {Characterising the changes in RSV epidemiology in Beijing, China during 2015--2023: results from a prospective, multi-centre, hospital-based surveillance and serology study}.
+\newblock {\em The Lancet Regional Health--Western Pacific}, 45, 2024.
+
+\bibitem{kim2023molecular}
+Ha~Nui Kim, Jinha Hwang, Soo-Young Yoon, Chae~Seung Lim, Yunjung Cho, Chang-Kyu Lee, and Myung-Hyun Nam.
+\newblock {Molecular characterization of human respiratory syncytial virus in Seoul, South Korea, during 10 consecutive years, 2010--2019}.
+\newblock {\em PLoS One}, 18(4):e0283873, 2023.
+
+\bibitem{rose2018respiratory}
+Erica~Billig Rose.
+\newblock {Respiratory syncytial virus seasonality—United States, 2014--2017}.
+\newblock {\em MMWR. Morbidity and mortality weekly report}, 67, 2018.
+
+\bibitem{hansen2022mortality}
+Chelsea~L Hansen, Sandra~S Chaves, Clarisse Demont, and C{\'e}cile Viboud.
+\newblock {Mortality associated with influenza and respiratory syncytial virus in the US, 1999-2018}.
+\newblock {\em JAMA Network Open}, 5(2):e220527--e220527, 2022.
+
+\bibitem{mazur2023respiratory}
+Natalie~I Mazur, Jonne Terstappen, Ranju Baral, Azucena Bardaj{\'\i}, Philippe Beutels, Ursula~J Buchholz, Cheryl Cohen, James~E Crowe, Clare~L Cutland, Linda Eckert, et~al.
+\newblock Respiratory syncytial virus prevention within reach: the vaccine and monoclonal antibody landscape.
+\newblock {\em The Lancet Infectious Diseases}, 23(1):e2--e21, 2023.
+
+\bibitem{matsumura2025epidemiology}
+Yasufumi Matsumura, Masaki Yamamoto, Yusuke Tsuda, Koh Shinohara, Yasuhiro Tsuchido, Satomi Yukawa, Taro Noguchi, Kazuo Takayama, and Miki Nagao.
+\newblock {Epidemiology of respiratory viruses according to age group, 2023--24 winter season, Kyoto, Japan}.
+\newblock {\em Scientific Reports}, 15(1):924, 2025.
+
+\bibitem{dehaan2024age}
+Laurel~L DeHaan, Charles~D Copeland, Jennifer~A Burney, Yosikazu Nakamura, Mayumi Yashiro, Chisato Shimizu, Koichi Miyata, Jane~C Burns, and Daniel~R Cayan.
+\newblock {Age-dependent variations in Kawasaki disease incidence in Japan}.
+\newblock {\em JAMA Network Open}, 7(2):e2355001--e2355001, 2024.
+
+\bibitem{lowen2007influenza}
+Anice~C Lowen, Samira Mubareka, John Steel, and Peter Palese.
+\newblock Influenza virus transmission is dependent on relative humidity and temperature.
+\newblock {\em PLoS Pathogens}, 3(10):e151, 2007.
+
+\bibitem{shaman2009absolute}
+Jeffrey Shaman and Melvin Kohn.
+\newblock Absolute humidity modulates influenza survival, transmission, and seasonality.
+\newblock {\em Proceedings of the National Academy of Sciences}, 106(9):3243--3248, 2009.
+
+\bibitem{shaman2010absolute}
+Jeffrey Shaman, Virginia~E Pitzer, C{\'e}cile Viboud, Bryan~T Grenfell, and Marc Lipsitch.
+\newblock {Absolute humidity and the seasonal onset of influenza in the continental United States}.
+\newblock {\em PLoS Biology}, 8(2):e1000316, 2010.
+
+\bibitem{tamerius2013environmental}
+James~D Tamerius, Jeffrey Shaman, Wladmir~J Alonso, Kimberly Bloom-Feshbach, Christopher~K Uejio, Andrew Comrie, and C{\'e}cile Viboud.
+\newblock Environmental predictors of seasonal influenza epidemics across temperate and tropical climates.
+\newblock {\em PLoS Pathogens}, 9(3):e1003194, 2013.
+
+\bibitem{lowen2014roles}
+Anice~C Lowen and John Steel.
+\newblock Roles of humidity and temperature in shaping influenza seasonality.
+\newblock {\em Journal of virology}, 88(14):7692--7695, 2014.
+
+\bibitem{munasinghe2019quantifying}
+Lankeshwara Munasinghe, Yusuke Asai, and Hiroshi Nishiura.
+\newblock Quantifying heterogeneous contact patterns in japan: a social contact survey.
+\newblock {\em Theoretical biology and medical modelling}, 16(1):6, 2019.
+
+\bibitem{okabe2024amino}
+Hisao Okabe, Koichi Hashimoto, Sakurako Norito, Yuichiro Asano, Masatoki Sato, Yohei Kume, Mina Chishiki, Hajime Maeda, Fumi Mashiyama, Aya Takeyama, et~al.
+\newblock {Amino acid substitutions in the fusion protein of respiratory syncytial virus in Fukushima, Japan during 2008--2023 and their effects}.
+\newblock {\em The Journal of Infectious Diseases}, 231(6):jiae636, 2024.
+
+\bibitem{nakajo2023age}
+K~Nakajo and H~Nishiura.
+\newblock Age-dependent risk of respiratory syncytial virus infection: a systematic review and hazard modeling from serological data.
+\newblock {\em The Journal of Infectious Diseases}, 228(10):1400--1409, 2023.
+
+\bibitem{andeweg2021population}
+Stijn~P Andeweg, Rutger~M Schepp, Jan van~de Kassteele, Liesbeth Mollema, Guy~AM Berbers, and Michiel van Boven.
+\newblock {Population-based serology reveals risk factors for RSV infection in children younger than 5 years}.
+\newblock {\em Scientific reports}, 11(1):8953, 2021.
+
+\bibitem{berbers2021antibody}
+Guy Berbers, Liesbeth Mollema, Fiona van~der Klis, Gerco den Hartog, and Rutger Schepp.
+\newblock {Antibody responses to respiratory syncytial virus: a cross-sectional serosurveillance study in the Dutch population focusing on infants younger than 2 years}.
+\newblock {\em The Journal of infectious diseases}, 224(2):269--278, 2021.
+
+\bibitem{shoji2025factors}
+Kensuke Shoji, Masaki Yamada, Michi Hisano, Yusuke Okubo, Erika Obikane, and Koushi Yamaguchi.
+\newblock Factors associated with respiratory syncytial virus-neutralizing antibody titers in adults.
+\newblock {\em Journal of Infection and Chemotherapy}, 31(10):102801, 2025.
+
+\bibitem{baker2020impact}
+Rachel~E Baker, Sang~Woo Park, Wenchang Yang, Gabriel~A Vecchi, C~Jessica~E Metcalf, and Bryan~T Grenfell.
+\newblock {The impact of COVID-19 nonpharmaceutical interventions on the future dynamics of endemic infections}.
+\newblock {\em Proceedings of the National Academy of Sciences}, 117(48):30547--30553, 2020.
+
+\bibitem{eden2022off}
+John-Sebastian Eden, Chisha Sikazwe, Ruopeng Xie, Yi-Mo Deng, Sheena~G Sullivan, Alice Michie, Avram Levy, Elena Cutmore, Christopher~C Blyth, Philip~N Britton, et~al.
+\newblock {Off-season RSV epidemics in Australia after easing of COVID-19 restrictions}.
+\newblock {\em Nature Communications}, 13(1):2884, 2022.
+
+\bibitem{chen2024covid}
+Zhiyuan Chen, Joseph L-H Tsui, Bernardo Gutierrez, Simon Busch~Moreno, Louis du~Plessis, Xiaowei Deng, Jun Cai, Sumali Bajaj, Marc~A Suchard, Oliver~G Pybus, et~al.
+\newblock {COVID-19 pandemic interventions reshaped the global dispersal of seasonal influenza viruses}.
+\newblock {\em Science}, 386(6722):eadq3003, 2024.
+
+\bibitem{park2024predicting}
+Sang~Woo Park, Kevin Messacar, Daniel~C Douek, Alicen~B Spaulding, C~Jessica~E Metcalf, and Bryan~T Grenfell.
+\newblock {Predicting the impact of COVID-19 non-pharmaceutical intervention on short-and medium-term dynamics of enterovirus D68 in the US}.
+\newblock {\em Epidemics}, 46:100736, 2024.
+
+\bibitem{white2005transmission}
+LJ~White, M~Waris, PA~Cane, D~James Nokes, and GF~Medley.
+\newblock {The transmission dynamics of groups A and B human respiratory syncytial virus (hRSV) in England \& Wales and Finland: seasonality and cross-protection}.
+\newblock {\em Epidemiology \& Infection}, 133(2):279--289, 2005.
+
+\bibitem{holmdahl2024differential}
+Inga Holmdahl, Samantha~J Bents, Rachel~E Baker, Jean-Sebastien Casalegno, N{\'\i}dia~Sequeira Trov{\~a}o, Sang~Woo Park, Jessica~E Metcalf, C{\'e}cile Viboud, and Bryan Grenfell.
+\newblock {Differential impact of COVID-19 non-pharmaceutical interventions on the epidemiological dynamics of respiratory syncytial virus subtypes A and B}.
+\newblock {\em Scientific reports}, 14(1):14527, 2024.
+
+\bibitem{bhattacharyya2015cross}
+Samit Bhattacharyya, Per~H Gesteland, Kent Korgenski, Ottar~N Bj{\o}rnstad, and Frederick~R Adler.
+\newblock Cross-immunity between strains explains the dynamical pattern of paramyxoviruses.
+\newblock {\em Proceedings of the National Academy of Sciences}, 112(43):13396--13400, 2015.
+
+\bibitem{yamagami2019detection}
+Hidetomi Yamagami, Hirokazu Kimura, Takafumi Hashimoto, Isao Kusakawa, and Satoshi Kusuda.
+\newblock {Detection of the onset of the epidemic period of respiratory syncytial virus infection in Japan}.
+\newblock {\em Frontiers in Public Health}, 7:39, 2019.
+
+\bibitem{hersbach2020era5}
+Hans Hersbach, Bill Bell, Paul Berrisford, Shoji Hirahara, Andr{\'a}s Hor{\'a}nyi, Joaqu{\'\i}n Mu{\~n}oz-Sabater, Julien Nicolas, Carole Peubey, Raluca Radu, Dinand Schepers, et~al.
+\newblock {The ERA5 global reanalysis}.
+\newblock {\em Quarterly Journal of the Royal Meteorological Society}, 146(730):1999--2049, 2020.
+
+\bibitem{park2024myco}
+Sang~Woo Park, Brooklyn Noble, Emily Howerton, Bjarke~F Nielsen, Sarah Lentz, Lilliam Ambroggio, Samuel Dominguez, Kevin Messacar, and Bryan~T Grenfell.
+\newblock {Predicting the impact of non-pharmaceutical interventions against COVID-19 on Mycoplasma pneumoniae in the United States}.
+\newblock {\em Epidemics}, 49:100808, 2024.
+
+\bibitem{carpenter2017stan}
+Bob Carpenter, Andrew Gelman, Matthew~D Hoffman, Daniel Lee, Ben Goodrich, Michael Betancourt, Marcus~A Brubaker, Jiqiang Guo, Peter Li, and Allen Riddell.
+\newblock {Stan: A probabilistic programming language}.
+\newblock {\em Journal of statistical software}, 76, 2017.
+
+\bibitem{perturbationzenodo}
+S.W. Park, I.~Holmdahl, E.~Howerton, W.~Yang, R.E. Baker, G.A. Vecchi, S.~Cobey, C.J.E. Metcalf, and B.T. Grenfell.
+\newblock {parksw3/perturbation: archive, Version v1.0.0}.
+\newblock {\em Zenodo}, 2025.
+\newblock https://doi.org/10.5281/zenodo.17396085.
+
+\end{thebibliography}
 
 \pagebreak
 
@@ -507,7 +775,7 @@ All code are stored in a publicly available GitHub repository (\url{https://gith
 We acknowledge the efforts of the National Institute of Infectious Diseases, Statistics Bureau of Japan, and Children and Families Agency for collecting/maintaining the data used in this study and making them publicly available.
 E.H., B.G., and C.J.E.M. have been funded in whole or in part with Federal funds from the National Cancer Institute, National Institutes of Health, under Prime Contract No. 75N91019D00024, Task Order No. 75N91023F00016. 
 The content of this publication does not necessarily reflect the views or policies of the National Institutes of Health or the Department of Health and Human Services, nor does mention of trade names, commercial products or organizations imply endorsement by the U.S. Government.
-S.W.P. is a Peter and Carmen Lucia Buck Foundation Awardee of the Life Sciences Research Foundation.
+S.W.P acknowledges support from Peter and Carmen Lucia Buck Foundation Awardee of the Life Sciences Research Foundation and the New Faculty Startup Fund from Seoul National University.
 I.H. received postdoctoral funding from the High Meadows Environmental Institute of Princeton University.
 B.T.G. and C.J.E.M. acknowledge support from Princeton Catalysis Initiative and Princeton Precision Health.
 S.C. is supported by Federal funds from the National Institute of Allergy and Infectious Diseases, National Institutes of Health, Department of Health and Human Services under CEIRR contract 75N93021C00015 - Subcontract 77789.
